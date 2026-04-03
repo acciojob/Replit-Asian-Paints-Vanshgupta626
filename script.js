@@ -8,7 +8,7 @@ const blocks = document.querySelectorAll(".grid-item");
 
 function resetAll() {
   blocks.forEach(block => {
-    block.style.backgroundColor = "transparent";
+    block.style.backgroundColor = "white";
   });
 }
 
@@ -16,14 +16,11 @@ changeBtn.addEventListener("click", () => {
   const id = blockInput.value;
   const color = colorInput.value;
 
-  resetAll(); // IMPORTANT (test case requirement)
+  resetAll();
 
   const target = document.getElementById(id);
-  if (target) {
-    target.style.backgroundColor = color;
-  }
-});
 
-resetBtn.addEventListener("click", () => {
-  resetAll();
+  if (!target) return;
+
+  target.style.backgroundColor = color;
 });
